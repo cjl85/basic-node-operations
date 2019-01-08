@@ -1,0 +1,154 @@
+1) Run the commands sort, wc and uniq on the commands.js file. Explain how they work and what the output was.
+
+- sort filename returns the file sorted alphabetically by line.
+
+done(data);
+if (err) throw err;
+break;
+break;
+const fileName = fullPath[0];
+done(userInput);
+fs.readFile(fileName, (err, data) => {
+});
+commandLibrary.cat(userInputArray. slice(1));
+commandLibrary.echo(userInputArray.slice(1).join(" "));
+//we will add the functionality of echo next within the object commandLibrary
+case "cat":
+case "echo":
+process.stdout.write('\nprompt > ');
+process.stdout.write(output);
+"cat": function(fullPath) {
+}
+},
+"echo": function(userInput) {
+const command = userInputArray[0];
+const userInputArray = userInput.split(" ");
+switch (command) {
+}
+//parses the user input to understand which command was typed
+//where we will store our commands
+//where we will store the logic of our commands
+//write out data
+const commandLibrary = {
+const fs = require("fs");
+function done(output) {
+function evaluateCmd(userInput) {
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+}
+}
+};
+
+////////////////////////////////////////////////
+
+- wc filename prints newline, word, and byte counts for a file.
+
+      44     114    1065 commands.js
+
+///////////////////////////////////////////////
+
+- uniq filename sorts each line in a file and only returns different lines. If there is a line in a file that is the same as a line above it, uniq removes it from the output.
+
+const fs = require("fs");
+
+//write out data
+function done(output) {
+    process.stdout.write(output);
+    process.stdout.write('\nprompt > ');
+}
+
+//where we will store our commands
+function evaluateCmd(userInput) {
+ //parses the user input to understand which command was typed
+  const userInputArray = userInput.split(" ");
+  const command = userInputArray[0];
+
+  switch (command) {
+    case "echo":
+     //we will add the functionality of echo next within the object commandLibrary
+      commandLibrary.echo(userInputArray.slice(1).join(" "));
+       break;
+    case "cat":
+      commandLibrary.cat(userInputArray. slice(1));
+       break;
+  }
+}
+
+//where we will store the logic of our commands
+const commandLibrary = {
+  "echo": function(userInput) {
+       done(userInput);
+   },
+   "cat": function(fullPath) {
+       const fileName = fullPath[0];
+       fs.readFile(fileName, (err, data) => {
+           if (err) throw err;
+           done(data);
+       });
+   }
+};
+
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+
+2) Using the pipe (|) connect at least two commands and run it on commands.js. Explain what the output was and why the specific data was outputted.
+
+- sort commands.js | uniq
+
+
+           done(data);
+           if (err) throw err;
+       break;
+       const fileName = fullPath[0];
+       done(userInput);
+       fs.readFile(fileName, (err, data) => {
+       });
+      commandLibrary.cat(userInputArray. slice(1));
+      commandLibrary.echo(userInputArray.slice(1).join(" "));
+     //we will add the functionality of echo next within the object commandLibrary
+    case "cat":
+    case "echo":
+    process.stdout.write('\nprompt > ');
+    process.stdout.write(output);
+   "cat": function(fullPath) {
+   }
+   },
+  "echo": function(userInput) {
+  const command = userInputArray[0];
+  const userInputArray = userInput.split(" ");
+  switch (command) {
+  }
+ //parses the user input to understand which command was typed
+//where we will store our commands
+//where we will store the logic of our commands
+//write out data
+const commandLibrary = {
+const fs = require("fs");
+function done(output) {
+function evaluateCmd(userInput) {
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+}
+};
+
+This output was expected because the command first sorts the file
+alphabetically and then uniq sorts each line in a file and only returns different lines. If there is a line in a file that is the same as a line above it, uniq removes it from the output.
+
+6)
+
+let input = `I'm learning to program algorithms!`;
+
+const reverseString = (inputString) => {
+  let letters = [],
+     reversed = '';
+
+  for (let i = 0; i < inputString.length; i++) {
+      letters.push(inputString[i]);
+  }
+
+  for (let i = 0; i < input.length; i++) {
+      reversed += letters.shift();
+  }
+  return reversed;
+}
+console.log(reverseString(`I'm learning to program algorithms`))
